@@ -10,7 +10,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql/init-percona.sql:/docker-entrypoint-initdb.d/init.sql
 
   postgres:
     image: postgres:14
@@ -22,7 +22,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./sql/init-postgres.sql:/docker-entrypoint-initdb.d/init.sql
 
   app:
     build: ./app
